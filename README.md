@@ -10,13 +10,16 @@
 
 ## Installation
 
-URL GOES HERE
-
+ https://timjohnson818.github.io/calendar-app/
+ 
 ## Usage
 
 - Click on the fields with the correspoding time slot and type what you have planned within.
 
 - When you are finished typing click on the save icon left adjacent to the box you are typing in, This will save your entry even if you close the page.
+
+ [Screen Cap](./assets/images/screencap.png)
+
 
 ## Notes
 
