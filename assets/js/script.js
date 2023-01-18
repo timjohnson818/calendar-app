@@ -5,9 +5,35 @@
 $(document).ready(function () {
  var saveBtn = $(".saveBtn");
 
- 
+ renderLocalStorage();
+
+ $(".time-block").each(function(){
+   if(parseInt($(this).attr("id")) == dayjs().format('H'))
+   {
+      $(this).removeClass("future");
+      $(this).removeClass("past");
+      $(this).addClass("present");
+   }
+
+   else if(parseInt($(this).attr("id")) > dayjs().format('H'))
+   {
+      $(this).removeClass("present");
+      $(this).removeClass("past");
+      $(this).addClass("future");
+   }
+
+   else
+   {
+      $(this).removeClass("present");
+      $(this).removeClass("future");
+      $(this).addClass("past");
+   }
+});
+
+ renderLocalStorage();
+
  saveBtn.on('click',function(){
-    var toDoText = this.parentElement.children[1].value
+    var toDoText = this.parentElement.children[1].value;
     localStorage.setItem(this.parentElement.id,toDoText);
  });
 
@@ -28,9 +54,18 @@ $(document).ready(function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
      function renderLocalStorage(){
-        
-     }
-  
+      $(".time-block").each(function(){
+         $("#09 textarea").val(localStorage.getItem("09"));
+         $("#10 textarea").val(localStorage.getItem("10"));
+         $("#11 textarea").val(localStorage.getItem("11"));
+         $("#12 textarea").val(localStorage.getItem("12"));
+         $("#13 textarea").val(localStorage.getItem("13"));
+         $("#14 textarea").val(localStorage.getItem("14"));
+         $("#15 textarea").val(localStorage.getItem("15"));
+         $("#16 textarea").val(localStorage.getItem("16"));
+         $("#17 textarea").val(localStorage.getItem("17"));
+     })
+   }
   // TODO: Add code to display the current date in the header of the page.
   var dateEl = $('#currentDay');
   dateEl.text(dayjs().format('dddd, MMMM DD'));
